@@ -1,0 +1,117 @@
+#cv-content {
+  padding: 8rem 2rem 6rem;
+  min-height: 100vh;
+}
+
+.cv-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cv-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.cv-header h1 {
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+.cv-section {
+  margin-bottom: 4rem;
+}
+
+.cv-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: normal;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.cv-item {
+  margin-bottom: 2rem;
+}
+
+.cv-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+
+.cv-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.cv-location {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-description {
+  color: #444;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.skill-category ul {
+  list-style: none;
+}
+
+.skill-category li {
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #cv-content {
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .cv-header h1 {
+    font-size: 2rem;
+  }
+
+  .cv-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #cv-content {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .cv-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .cv-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .cv-item h3 {
+    font-size: 1.1rem;
+  }
+} 
