@@ -1,4 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize mobile menu for all pages
+  initializeMobileMenu();
+
+  // Only run home page specific code if we're on the home page
+  if (document.body.classList.contains('home')) {
+    initializeHomePage();
+  }
+});
+
+function initializeMobileMenu() {
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Close mobile menu when clicking a link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      mobileMenuBtn.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      mobileMenuBtn.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+function initializeHomePage() {
   /* Typing Animation */
   const preText = "Hey, I am ";
   const lastName = "Radler";
@@ -69,29 +108,4 @@ document.addEventListener('DOMContentLoaded', () => {
       contentContainer.classList.remove("scrolled");
     }
   });
-
-  /* Mobile Menu */
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
-
-  mobileMenuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-  });
-
-  // Close mobile menu when clicking a link
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-}); 
+} 
