@@ -45,7 +45,6 @@
 .response-signature {
   font-size: 1.1rem;
   color: #666;
-  font-style: italic;
   opacity: 0;
   margin-left: auto;
   padding-right: 40%;
@@ -288,7 +287,7 @@
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -296,46 +295,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0;
 }
 
 .scroll-text {
   display: block;
-  margin-bottom: 1.5rem;
-  font-size: 0.75rem;
-  opacity: 0.8;
-  letter-spacing: 0.4em;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 300;
 }
 
 .scroll-arrow {
   position: relative;
   animation: scrollBounce 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  width: 16px;
-  height: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .scroll-arrow::before {
   content: '';
   display: block;
-  width: 10px;
-  height: 10px;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
   transform: rotate(45deg);
 }
 
 .scroll-arrow::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
   transform: rotate(45deg);
   opacity: 0.3;
   animation: scrollBounceEcho 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -347,7 +341,7 @@
     opacity: 1;
   }
   30% {
-    transform: translateY(10px);
+    transform: translateY(15px);
     opacity: 0.7;
   }
   60% {
@@ -366,7 +360,7 @@
     opacity: 0.3;
   }
   30% {
-    transform: rotate(45deg) scale(1.1);
+    transform: rotate(45deg) scale(1.2);
     opacity: 0;
   }
   60% {
