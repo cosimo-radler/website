@@ -46,9 +46,13 @@ function initializeHomePage() {
   const lastNameSpan = document.querySelector(".last-name");
   const typingContainer = document.querySelector(".typing-container");
   const mainNav = document.querySelector(".main-nav");
-  const navBrand = document.querySelector(".nav-brand");
   let index = 0;
-  const speed = 50; // Faster typing speed
+  
+  // Function to get a random typing speed between min and max
+  const getRandomSpeed = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+  // Base typing speed is now slower (100ms) with variation
+  const baseSpeed = 100;
 
   // Clear initial text
   preTextSpan.textContent = "";
@@ -58,11 +62,12 @@ function initializeHomePage() {
     if (index < preText.length) {
       preTextSpan.textContent = preText.slice(0, index + 1);
       index++;
-      setTimeout(typePreText, speed);
+      // Add random variation to typing speed
+      setTimeout(typePreText, getRandomSpeed(baseSpeed * 0.8, baseSpeed * 1.5));
     } else {
       // Start typing Cosimo after preText is complete
       index = 0;
-      typeCosimo();
+      setTimeout(typeCosimo, baseSpeed * 2); // Longer pause between phrases
     }
   }
 
@@ -70,7 +75,8 @@ function initializeHomePage() {
     if (index < "Cosimo".length) {
       firstNameSpan.textContent = "Cosimo".slice(0, index + 1);
       index++;
-      setTimeout(typeCosimo, speed);
+      // Add random variation to typing speed
+      setTimeout(typeCosimo, getRandomSpeed(baseSpeed * 0.8, baseSpeed * 1.5));
     }
   }
   
@@ -79,21 +85,26 @@ function initializeHomePage() {
 
   /* Scroll Interaction */
   window.addEventListener("scroll", () => {
-    if (window.scrollY > window.innerHeight * 0.3) {
+    const scrollThreshold = window.innerHeight * 0.3;
+    const currentScrollPosition = window.scrollY;
+
+    if (currentScrollPosition > scrollThreshold) {
       typingContainer.classList.add("scrolled");
       preTextSpan.style.opacity = "0";
       
-      // Show navigation after a small delay
+      // Show navigation and last name after the container has moved to top-left
       setTimeout(() => {
         mainNav.classList.add("visible");
         lastNameSpan.textContent = lastName;
-      }, 800);
-      
+      }, 400);
     } else {
-      typingContainer.classList.remove("scrolled");
-      preTextSpan.style.opacity = "1";
+      // When scrolling back up, first remove the last name and nav
       lastNameSpan.textContent = "";
       mainNav.classList.remove("visible");
+      
+      // Then reset the container position
+      typingContainer.classList.remove("scrolled");
+      preTextSpan.style.opacity = "1";
     }
   });
 
