@@ -42,6 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }, delay);
   };
 
+  // Handle scroll indicator visibility
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      scrollIndicator.style.opacity = '0';
+      scrollIndicator.style.pointerEvents = 'none';
+    } else {
+      scrollIndicator.style.opacity = '1';
+      scrollIndicator.style.pointerEvents = 'auto';
+    }
+  };
+
+  // Add scroll event listener
+  window.addEventListener('scroll', handleScroll);
+
   // Main animation sequence
   const startAnimation = async () => {
     // Make CV content immediately available for scrolling

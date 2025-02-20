@@ -252,7 +252,7 @@ body:not(.home) .nav-brand {
 .image-container img {
   width: 100%;
   height: auto;
-  filter: grayscale(100%);
+  filter: grayscale(0%);
   object-fit: cover;
   aspect-ratio: 3/4;
 }
