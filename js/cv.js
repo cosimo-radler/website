@@ -88,4 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollIndicator.addEventListener('click', () => {
     cvContent.scrollIntoView({ behavior: 'smooth' });
   });
-}); 
+});
+
+function toggleExperience() {
+    const hiddenExperience = document.querySelector('.hidden-experience');
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    
+    if (hiddenExperience.style.display === 'none') {
+        hiddenExperience.style.display = 'block';
+        showMoreBtn.textContent = 'Show Less';
+    } else {
+        hiddenExperience.style.display = 'none';
+        showMoreBtn.textContent = 'Show More';
+    }
+} 
