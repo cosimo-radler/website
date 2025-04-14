@@ -238,6 +238,24 @@
   opacity: 0.7;
 }
 
+/* Special styling for MindStash link */
+.cv-link a.mindstash-link {
+  background: linear-gradient(45deg, #000000, #333333);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cv-link a.mindstash-link:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Quote Styles */
 .cv-quote {
   margin: 0 auto 4rem;
