@@ -92,6 +92,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add to browser history so back button works
     history.pushState({ postId }, post.title, `#post-${postId}`);
+    
+    // Track view in Vercel Analytics
+    if (typeof window.va !== 'undefined') {
+      // Track pageview with Vercel Analytics
+      window.va('pageview', {
+        url: window.location.href,
+        title: post.title,
+        referrer: document.referrer,
+        path: `/blog/post/${postId}`,
+        properties: {
+          postId: postId,
+          postTitle: post.title
+        }
+      });
+    }
   };
   
   // Function to close a blog post
