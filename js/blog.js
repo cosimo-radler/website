@@ -111,12 +111,29 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Function to close a blog post
   const closePost = () => {
+    // Hide the post view
     postView.style.display = 'none';
     document.body.style.overflow = ''; // Restore scrolling
     
-    // Go back in history if we're viewing a post
+    // Clear the URL hash and update history
     if (window.location.hash.includes('post-')) {
-      history.back();
+      // Try to use history.back() first
+      try {
+        history.back();
+      } catch (e) {
+        // If history.back() fails, just replace the URL without the hash
+        history.replaceState(null, '', window.location.pathname);
+      }
+      
+      // Set a small timeout to ensure the post view is hidden even if history navigation fails
+      setTimeout(() => {
+        if (postView.style.display !== 'none') {
+          postView.style.display = 'none';
+        }
+      }, 100);
+    } else {
+      // If no hash, just replace the state to ensure clean URL
+      history.replaceState(null, '', window.location.pathname);
     }
   };
   

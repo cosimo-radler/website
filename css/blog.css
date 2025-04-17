@@ -187,5 +187,28 @@
   
   .post-title {
     font-size: 1.8rem;
+    padding-right: 2rem;
+  }
+  
+  .close-post-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  .blog-post-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .close-post-btn {
+    top: 0;
+    right: 0;
+  }
+  
+  .post-title {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
   }
 } 
