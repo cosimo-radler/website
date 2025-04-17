@@ -27,7 +27,43 @@
 
   <!-- Blog Content -->
   <section id="blog-content">
-    <div class="typing-container"></div>
+    <div class="blog-header">
+      <h1>Blog</h1>
+    </div>
+    
+    <div class="blog-grid">
+      <!-- Blog posts will be loaded dynamically via JavaScript -->
+    </div>
+    
+    <!-- Blog post template that will be used by JavaScript -->
+    <template id="blog-post-template">
+      <article class="blog-post">
+        <a class="blog-post-link">
+          <div class="blog-post-image">
+            <img src="" alt="">
+          </div>
+          <h2 class="blog-post-title"></h2>
+          <div class="blog-post-date"></div>
+        </a>
+      </article>
+    </template>
+    
+    <!-- Individual blog post view (hidden by default) -->
+    <div class="blog-post-view" style="display: none;">
+      <div class="blog-post-container">
+        <button class="close-post-btn">&times;</button>
+        <div class="blog-post-content">
+          <h1 class="post-title"></h1>
+          <div class="post-meta">
+            <span class="post-date"></span>
+          </div>
+          <div class="post-image">
+            <img src="" alt="">
+          </div>
+          <div class="post-body"></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <script src="js/nav.js"></script>
